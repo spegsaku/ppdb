@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/gpg/elements/1.0" xmlns:data="http://www.google.com/bind/data" xmlns:expr="http://www.google.com/bind/expr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPDB SMP PGRI 1 KUWARASAN | 2026/2027</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Blogger Required Skin -->
+    <b:skin><![CDATA[
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-body: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --card-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+            --neon-glow: 0 0 15px rgba(30, 64, 175, 0.2);
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        
+        body { 
+            background: var(--bg-body); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+        }
+
+        /* BRAND NAVBAR / HEADER EFFECT */
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            position: fixed;
+            top: 44px; /* di bawah urgent bar */
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+        .brand-logo i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            filter: drop-shadow(0 2px 5px rgba(217, 119, 6, 0.3));
+        }
+        .nav-official-btn {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(30, 64, 175, 0.1);
+        }
+        .nav-official-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* URGENCY BAR */
+        .urgent-bar {
+            background: linear-gradient(90deg, #be123c, #fb7185, #be123c);
+            background-size: 200% auto;
+            color: white; 
+            text-align: center; 
+            padding: 12px; 
+            font-size: 0.85rem; 
+            font-weight: 800;
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 2000;
+            animation: shine 3s linear infinite;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+        }
+
+        /* HERO SECTION */
+        .hero { 
+            padding: 190px 5% 60px; 
+            text-align: center; 
+            background: radial-gradient(circle at top, #eff6ff 0%, #f8fafc 100%); 
+            position: relative;
+        }
+        
+        .hero-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .live-status {
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px;
+            background: white; 
+            padding: 12px 24px; 
+            border-radius: 50px;
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            color: var(--primary-dark);
+        }
+        
+        .dot { 
+            width: 10px; 
+            height: 10px; 
+            background: var(--danger); 
+            border-radius: 50%; 
+            animation: pulse-red 1.5s infinite; 
+        }
+
+        /* MOTTO SLOGAN BADGE */
+        .motto-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            color: #b45309;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROGRESS BAR FOR SEATS */
+        .quota-progress-container {
+            max-width: 500px;
+            margin: 25px auto 0;
+            background: #e2e8f0;
+            border-radius: 50px;
+            height: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #cbd5e1;
+        }
+        .quota-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #3b82f6);
+            width: 79%; /* 158/200 filled as fallback */
+            border-radius: 50px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: progressPulse 2s infinite ease-in-out;
+        }
+
+        /* MAIN CTA BUTTON */
+        .btn-register-main {
+            display: inline-flex; 
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px; 
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%); 
+            color: white;
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 800; 
+            font-size: 1.15rem;
+            margin-top: 25px; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.35);
+            animation: heartBeat 2.5s infinite;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .btn-register-main:hover { 
+            transform: translateY(-3px) scale(1.02); 
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%); 
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.45);
+        }
+
+        /* STATS */
+        .stat-grid { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            margin-top: 45px; 
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-card { 
+            background: white; 
+            padding: 25px 20px; 
+            border-radius: 24px; 
+            min-width: 180px; 
+            flex: 1 1 200px;
+            max-width: 280px;
+            box-shadow: var(--card-shadow); 
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-top: 6px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.08);
+        }
+        
+        .stat-card h3 { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            color: var(--primary-dark); 
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        /* BROCHURE SECTION (COOL SHOWCASE) */
+        .brochure-section {
+            padding: 80px 5% 60px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .brochure-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        /* Interactive Brochure Preview (Flipbook style) */
+        .brochure-preview-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+            border-radius: 30px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 30px 60px rgba(30, 64, 175, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .brochure-preview-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .brochure-badge {
+            background: var(--accent);
+            color: white;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+        }
+        .brochure-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+        .brochure-tab {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .brochure-tab.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+        .brochure-content {
+            display: none;
+            min-height: 220px;
+            animation: fadeIn 0.4s ease;
+        }
+        .brochure-content.active {
+            display: block;
+        }
+        
+        .brochure-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .brochure-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .brochure-list li i {
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        .brochure-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 15px;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            justify-content: center;
+        }
+        .brochure-link-btn:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 15px 25px rgba(217, 119, 6, 0.3);
+        }
+
+        /* SECTION TITLE */
+        .section-header {
+            text-align: center;
+            padding: 60px 5% 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* STUDENT GRID */
+        .student-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px; 
+            padding: 20px 5% 60px; 
+            max-width: 1300px; 
+            margin: 0 auto;
+        }
+        
+        .student-card {
+            background: white; 
+            border-radius: 24px; 
+            padding: 24px;
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .student-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.06);
+        }
+        
+        .circle-ava { 
+            width: 64px; 
+            height: 64px; 
+            background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.15);
+        }
+        
+        .school-label { 
+            font-size: 0.8rem; 
+            color: var(--primary-dark); 
+            font-weight: 700; 
+            margin-top: 8px; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px; 
+            background: var(--primary-light); 
+            padding: 6px 12px; 
+            border-radius: 12px; 
+        }
+
+        /* MAP BOX */
+        .map-container {
+            position: relative;
+            width: 90%;
+            max-width: 850px;
+            margin: 20px auto 80px;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+            text-align: center;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(226, 232, 240, 0.8) !important;
+            margin-top: 20px;
+        }
+
+        .map-info {
+            margin-bottom: 12px;
+        }
+
+        .map-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: block;
+        }
+
+        .map-address {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* GIANT TESTIMONY */
+        #testi-giant {
+            position: fixed; 
+            bottom: 30px; 
+            left: 30px; 
+            background: white;
+            padding: 30px; 
+            border-radius: 28px; 
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+            max-width: 480px; 
+            z-index: 3000; 
+            transform: translateX(-160%); 
+            transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 12px solid var(--accent);
+            border-top: 1px solid rgba(226, 232, 240, 0.6);
+        }
+        #testi-giant.active { 
+            transform: translateX(0); 
+        }
+        .testi-text { 
+            font-size: 0.95rem; 
+            line-height: 1.7; 
+            font-style: italic; 
+            color: #1e293b; 
+            margin: 15px 0; 
+            font-weight: 500; 
+        }
+
+        /* FLOATING REGISTER SIDEBAR */
+        .side-register {
+            position: fixed; 
+            right: 0; 
+            top: 50%; 
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--accent) 0%, #b45309 100%); 
+            color: white; 
+            padding: 20px 15px;
+            border-radius: 24px 0 0 24px; 
+            z-index: 1500; 
+            text-decoration: none;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 12px;
+            box-shadow: -10px 10px 30px rgba(0,0,0,0.15); 
+            transition: all 0.3s ease;
+        }
+        .side-register:hover { 
+            padding-right: 28px; 
+        }
+        .side-register i { 
+            font-size: 1.6rem; 
+        }
+        .side-register span { 
+            writing-mode: vertical-rl; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 0.85rem;
+        }
+
+        /* ADVANCED WA */
+        .wa-container { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 5000; 
+        }
+        .wa-tooltip {
+            position: absolute; 
+            top: -55px; 
+            right: 0; 
+            background: var(--danger); 
+            color: white;
+            padding: 8px 18px; 
+            border-radius: 12px; 
+            font-size: 0.75rem; 
+            font-weight: 800;
+            white-space: nowrap; 
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+            animation: float 2s infinite; 
+            display: none;
+            letter-spacing: 0.5px;
+        }
+        .wa-tooltip::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -8px; 
+            right: 25px; 
+            border-left: 8px solid transparent; 
+            border-right: 8px solid transparent; 
+            border-top: 8px solid var(--danger); 
+        }
+        .wa-main { 
+            width: 70px; 
+            height: 70px; 
+            background: #22c55e; 
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 38px; 
+            text-decoration: none; 
+            position: relative; 
+            box-shadow: 0 15px 40px rgba(34,197,94,0.45); 
+            transition: transform 0.3s ease;
+        }
+        .wa-main:hover {
+            transform: scale(1.08);
+        }
+        .wa-radar { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            background: #22c55e; 
+            border-radius: 50%; 
+            opacity: 0.5; 
+            animation: radar 2s linear infinite; 
+            z-index: -1; 
+        }
+
+        /* ANIMATIONS */
+        @keyframes radar { 
+            0% { transform: scale(1); opacity: 0.5; } 
+            100% { transform: scale(2.1); opacity: 0; } 
+        }
+        @keyframes float { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(-8px); } 
+        }
+        @keyframes shine { 
+            to { background-position: 200% center; } 
+        }
+        @keyframes pulse-red { 
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
+        }
+        @keyframes heartBeat { 
+            0% { transform: scale(1); } 
+            14% { transform: scale(1.04); } 
+            28% { transform: scale(1); } 
+            42% { transform: scale(1.04); } 
+            70% { transform: scale(1); } 
+        }
+        @keyframes progressPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE LAYOUT FOR MOBILE DEVICES */
+        @media (max-width: 900px) {
+            .brochure-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .brand-header {
+                top: 40px;
+            }
+            .hero {
+                padding: 170px 15px 50px; 
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            #testi-giant { 
+                left: 15px; 
+                right: 15px; 
+                bottom: 115px; 
+                padding: 24px; 
+                max-width: calc(100% - 30px);
+            }
+            .side-register { 
+                display: none; 
+            }
+            .wa-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            .wa-main {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+            }
+            .stat-grid {
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 20px 15px;
+                min-width: 140px;
+            }
+            .stat-card h3 {
+                font-size: 2rem;
+            }
+        }
+    ]]></b:skin>
+</head>
+<body>
+
+    <!-- Blogger Required Section (Hidden) -->
+    <div style='display: none;'>
+        <b:section id='blogger-main-section' showaddelement='yes'></b:section>
+    </div>
+
+    <!-- URGENCY BAR -->
+    <div class="urgent-bar">
+        ⚡ SISA KUOTA GELOMBANG 1: <span id="kuota-live">42</span> KURSI! DAFTAR ONLINE SEBELUM DITUTUP.
+    </div>
+
+    <!-- BRAND NAVBAR -->
+    <header class="brand-header">
+        <div class="brand-logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>SMP PGRI 1 KUWARASAN</span>
+        </div>
+        <a href="http://spegsakujuara.blogspot.com" target="_blank" class="nav-official-btn">
+            <i class="fas fa-globe"></i> Web Resmi
+        </a>
+    </header>
+
+    <!-- SIDE REGISTER (Only Desktop) -->
+    <a href="https://s.id/SPMBPGRI" target="_blank" class="side-register">
+        <i class="fas fa-file-signature"></i>
+        <span>DAFTAR ONLINE</span>
+    </a>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="live-status">
+                <div class="dot"></div>
+                <span id="active-user">54</span> Calon Wali Murid Sedang Mengisi Formulir
+            </div>
+            
+            <div class="motto-badge">
+                <i class="fas fa-award"></i> SPEGSAKU JUARA: Jangkar Akhlak &amp; Sayap Prestasi
+            </div>
+            
+            <h1 style="font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.25; color: var(--primary-dark); letter-spacing: -0.5px;">
+                Jangan Tunggu Kuota Penuh! <br />
+                <span style="background: linear-gradient(to right, var(--primary), #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Kunci Kursi Anak Anda Secara Mandiri</span>
+            </h1>
+            
+            <p class="mt-6 text-slate-600 max-w-2xl mx-auto text-base sm:text-lg font-medium leading-relaxed">
+                Gelisah dengan zonasi domisili, afirmasi, kuota prestasi, dan **sistem seleksi TKA (Tes Kemampuan Akademik)** yang rumit di Sekolah Negeri? Lewati ketidakpastian itu! Di **SMP PGRI 1 Kuwarasan**, anak Anda <strong class="text-blue-700">langsung diterima pasti</strong> tanpa proses eliminasi yang membingungkan.
+            </p>
+            
+            <a href="https://s.id/SPMBPGRI" target="_blank" class="btn-register-main">
+                <i class="fas fa-file-signature"></i> ISI FORMULIR PENDAFTARAN SEKARANG
+            </a>
+
+            <!-- Progress Bar with live percentage counter -->
+            <div class="quota-progress-container">
+                <div class="quota-progress-bar" id="live-progress-bar"></div>
+            </div>
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-top: 10px;">
+                Kuota Terisi: <span id="quota-filled-text">158</span> / 200 Siswa Terdaftar
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3 id="stat-total">0</h3>
+                    <p style="font-weight: 800; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Siswa Sudah Aman</p>
+                </div>
+                <div class="stat-card" style="border-top-color: var(--danger);">
+                    <h3 style="color: var(--danger);" id="stat-rem">42</h3>
+                    <p style="font-weight: 800; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Kursi Tersisa</p>
+                </div>
+                <div class="stat-card" style="border-top-color: var(--success);">
+                    <h3 style="color: var(--success);">GEL. 1</h3>
+                    <p style="font-weight: 800; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Bebas Uang Gedung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSUASIVE CONTRAST SECTION: NEGERI VS SPEGSAKU -->
+    <section class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-10">
+                <span class="text-amber-600 font-extrabold text-sm tracking-wider uppercase">💡 PERBANDINGAN CERDAS SEBELUM MENYESAL</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 mt-2">Dilema Sekolah Negeri vs Jaminan SPEGSAKU</h2>
+                <p class="text-slate-500 text-sm sm:text-base mt-2">Pahami tantangan administrasi di era baru dan temukan mengapa SPEGSAKU adalah pilihan strategis yang lebih aman untuk masa depan anak Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Sisi Negeri -->
+                <div class="bg-white p-6 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white font-extrabold text-[10px] px-3 py-1 rounded-bl-xl tracking-widest uppercase">KETIDAKPASTIAN</div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0 text-lg">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-slate-800">Sekolah Negeri Favorit</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Juknis TKA yang Ketat:</strong> Adanya ujian kognitif/TKA (Tes Kemampuan Akademik) membuat peluang gugur anak Anda sangat tinggi bila nilai kurang bersaing.</span>
+                        </li>
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Batasan Domisili &amp; Zonasi:</strong> Meskipun secara akademis anak Anda pintar, rumah yang berjarak beberapa meter lebih jauh bisa langsung menggagalkan penerimaan.</span>
+                        </li>
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-times-circle text-red-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Eliminasi Sistem Kuota:</strong> Harus selalu memantau posisi jurnal harian dengan cemas, takut tergeser pendaftar lain di menit-menit akhir.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sisi Swasta (SPEGSAKU) -->
+                <div class="bg-blue-950 p-6 rounded-3xl border border-blue-900 shadow-lg text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-white font-extrabold text-[10px] px-3 py-1 rounded-bl-xl tracking-widest uppercase">GARANSI PASTI</div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-900 text-amber-500 flex items-center justify-center flex-shrink-0 text-lg">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-amber-400">SMP PGRI 1 Kuwarasan</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm text-blue-100">
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-check-circle text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Diterima Secara Langsung:</strong> Pendaftaran mandiri yang langsung diproses dan dikunci kuotanya. Bebas cemas gugur karena aturan TKA atau jarak zonasi.</span>
+                        </li>
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-check-circle text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Pembinaan &amp; Karakter Fokus:</strong> Rasio guru dan siswa yang seimbang menjamin pendampingan karakter santun, disiplin, tangguh mental, dan akhlakul karimah yang lebih intensif.</span>
+                        </li>
+                        <li class="flex gap-2 items-start">
+                            <i class="fas fa-check-circle text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Fleksibilitas Mengembangkan Bakat:</strong> Sekolah swasta jauh lebih adaptif dalam menyalurkan potensi unik anak di bidang teknologi maupun non-akademis.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center bg-blue-50 p-5 rounded-2xl border border-blue-100 max-w-3xl mx-auto">
+                <p class="text-xs sm:text-sm text-blue-950 font-bold italic">
+                    "Masa depan anak tidak hanya ditentukan oleh label 'sekolah favorit', tetapi oleh lingkungan pendidikan yang tepat, pembinaan karakter, pengembangan potensi, dan kesempatan berkembang secara maksimal." (SMPB 2026.jpg)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: OFFICIAL BROCHURE & VITAL INFO SECTION -->
+    <section class="brochure-section">
+        <div class="brochure-container">
+            <div class="brochure-info">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px;">🔴 KUPAS TUNTAS SPEGSAKU</span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--primary-dark); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px;">
+                    Mengapa Harus SMP PGRI 1 Kuwarasan?
+                </h2>
+                <p style="color: var(--text-main); font-size: 1rem; margin-bottom: 25px; font-weight: 500;">
+                    Sekolah tertua dengan alumni terbanyak di Kuwarasan yang berdiri sejak tahun 1978 ini mengombinasikan keseimbangan antara <strong>Akar Akhlak yang kuat</strong> dan <strong>Sayap Prestasi yang tinggi</strong>. Kami melahirkan lulusan berkarakter unggul yang religius serta kompetitif di bidang akademik dan non-akademik.
+                </p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 800; color: var(--primary-dark); font-size: 1.05rem;">Program Unggulan TIK (Digital Skills)</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Membekali siswa mahir menggunakan komputer, Microsoft Office, Google Workspace, desain &amp; kreativitas digital modern guna mencetak calon pemimpin masa depan.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: #fffbeb; color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 800; color: var(--primary-dark); font-size: 1.05rem;">Kelas Khusus Olahraga (KKO)</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Menggabungkan kurikulum akademik dengan program latihan intensif untuk melatih atlet unggul di bidang Voli, Futsal, Sepak Bola, Badminton, dan Tenis Meja.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE TABBED BROCHURE BOX -->
+            <div class="brochure-preview-box">
+                <span class="brochure-badge">📂 SPILL BROSUR RESMI</span>
+                <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 20px;">Brosur Digital SPEGSAKU</h3>
+                
+                <div class="brochure-tabs">
+                    <button class="brochure-tab active" onclick="switchTab(event, 'tab-keunggulan')">7 Keunggulan</button>
+                    <button class="brochure-tab" onclick="switchTab(event, 'tab-gelombang')">Bonus &amp; Benefit</button>
+                    <button class="brochure-tab" onclick="switchTab(event, 'tab-syarat')">Syarat Berkas</button>
+                    <button class="brochure-tab" onclick="switchTab(event, 'tab-prestasi')">Prestasi Terbaru</button>
+                </div>
+
+                <!-- Tab Keunggulan -->
+                <div id="tab-keunggulan" class="brochure-content active">
+                    <ul class="brochure-list">
+                        <li><i class="fas fa-check-circle"></i> <span>Pendidikan Karakter &amp; Akhlakul Karimah menjadi Prioritas</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Pendampingan siswa lebih intensif oleh guru profesional</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Fokus pengembangan bakat minat, akademis &amp; nonakademis</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Program KKO &amp; Program Unggulan TIK terarah</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Sekkolah Adaptif, Visioner, dan Lingkungan Positif-Kekeluargaan</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tab Gelombang -->
+                <div id="tab-gelombang" class="brochure-content">
+                    <ul class="brochure-list">
+                        <li><i class="fas fa-gift"></i> <span><strong>GELOMBANG 1:</strong> BEBAS Biaya Uang Gedung 100%!</span></li>
+                        <li><i class="fas fa-gift"></i> <span><strong>Bonus Pendaftaran:</strong> GRATIS Kaos Olahraga keren bagi siswa pendaftar.</span></li>
+                        <li><i class="fas fa-gift"></i> <span><strong>Kemudahan Layanan:</strong> Panduan pengisian formulir via WhatsApp Admin 24 Jam.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tab Syarat -->
+                <div id="tab-syarat" class="brochure-content">
+                    <ul class="brochure-list">
+                        <li><i class="fas fa-file-alt"></i> <span>Fotokopi Kartu Keluarga (1 lembar) &amp; Akte Kelahiran (1 lembar)</span></li>
+                        <li><i class="fas fa-file-alt"></i> <span>Fotokopi KTP kedua orang tua &amp; KIP/Buku Simpel (jika ada)</span></li>
+                        <li><i class="fas fa-file-alt"></i> <span>Fotokopi Ijazah SD/MI (3 lembar, bisa menyusul)</span></li>
+                        <li><i class="fas fa-file-alt"></i> <span>Fotokopi SKL (Surat Keterangan Lulus) &amp; Pas Foto 3x4 (2 lembar)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tab Prestasi -->
+                <div id="tab-prestasi" class="brochure-content">
+                    <ul class="brochure-list">
+                        <li><i class="fas fa-trophy"></i> <span>Juara 1 OSM Matematika Tingkat Kabupaten (MAN 4 Kebumen)</span></li>
+                        <li><i class="fas fa-trophy"></i> <span>Juara 3 Voli Putra Tingkat Kabupaten Kebumen</span></li>
+                        <li><i class="fas fa-trophy"></i> <span>Juara 3 Futsal Putri Tingkat Kabupaten Kebumen</span></li>
+                        <li><i class="fas fa-trophy"></i> <span>Juara 2 LCC Museum Tingkat Kabupaten Kebumen</span></li>
+                        <li><i class="fas fa-trophy"></i> <span>Meluluskan 100% siswa berprestasi setiap tahunnya</span></li>
+                    </ul>
+                </div>
+
+                <a href="http://spegsakujuara.blogspot.com" target="_blank" class="brochure-link-btn">
+                    <i class="fas fa-external-link-alt"></i> BACA BERITA &amp; ARTIKEL DI WEB RESMI
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TITLE FOR STUDENT LIST -->
+    <div class="section-header">
+        <h2>Pendaftar Terbaru Terverifikasi</h2>
+        <p>Nama-nama calon siswa baru yang formulirnya telah sukses masuk ke dalam database kami.</p>
+    </div>
+
+    <!-- LIST CALON SISWA -->
+    <div class="student-grid" id="main-list">
+        <!-- Terisi otomatis melalui JS -->
+    </div>
+
+    <!-- MAPS & CONTACT BOX -->
+    <div class="map-container">
+        <div class="map-info">
+            <span class="map-title">📍 Lokasi SMP PGRI 1 KUWARASAN</span>
+            <span class="map-address">Jl. Panembahan, Kuwarasan, Kec. Kuwarasan, Kabupaten Kebumen, Jawa Tengah</span>
+        </div>
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.974953443313!2d109.50528717591605!3d-7.665161092351221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7acc708b44d2a5%3A0xd794cf31a68eec2c!2sSMP%20PGRI%201%20KUWARASAN!5e0!3m2!1sid!2sid!4v1708260000000!5m2!1sid!2sid" 
+            height="380" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+        <p style="font-family: sans-serif; font-size: 15px; color: #34495e; margin-top: 20px; line-height: 1.6;">
+            <strong>Butuh bantuan pengisian formulir? Hubungi kami:</strong><br /> 
+            <span style="font-weight: 700; color: var(--primary-dark); font-size: 1.1rem;"><i class="fas fa-phone-alt"></i> +62 287 472210</span> <br />
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=SMP+PGRI+1+KUWARASAN" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; padding: 12px 25px; background-color: #10b981; color: white; text-decoration: none; border-radius: 12px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.25); transition: transform 0.2s ease;">
+                Dapatkan Petunjuk Arah Jalan 🚗
+            </a>
+        </p>
+    </div>
+
+    <!-- GIANT TESTIMONY BAR -->
+    <div id="testi-giant">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="t-ava" class="circle-ava" style="width:50px; height:50px; font-size:1.2rem; box-shadow: none;"></div>
+            <div>
+                <div id="t-user" style="font-weight: 800; color: var(--primary-dark); font-size: 1rem;"></div>
+                <div id="t-loc" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;"></div>
+            </div>
+        </div>
+        <p class="testi-text" id="t-msg"></p>
+        <div style="color: var(--accent); font-size: 0.95rem; display: flex; align-items: center; gap: 3px;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span style="color: #1e293b; font-weight: 800; margin-left: 8px; font-size: 0.75rem; letter-spacing: 0.3px; background: #fffbeb; padding: 3px 8px; border-radius: 6px; border: 1px solid #fde68a;">Wali Murid Terverifikasi</span>
+        </div>
+        <a href="https://s.id/SPMBPGRI" target="_blank" style="display:block; margin-top:15px; color: var(--primary); font-weight: 800; font-size: 0.85rem; text-decoration: none; transition: color 0.2s ease;">IKUT DAFTAR SEPERTI MEREKA &gt;</a>
+    </div>
+
+    <!-- WHATSAPP WIDGET -->
+    <div class="wa-container">
+        <div class="wa-tooltip" id="wa-hint">TANYA CARA DAFTAR</div>
+        <div class="wa-radar"></div>
+        <a href="https://wa.me/6288902893477?text=Halo%20Admin,%20saya%20sudah%20melihat%20formulir%20di%20s.id/SPMBPGRI%20tapi%20ingin%20tanya%20sisa%20kuota..." class="wa-main" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        const sheetID = '1mW9TYAouU01VlTH5cA8cen5Df89fn_8zRaxCFFAkcKI';
+        let currentSisa = 42;
+        let activeUsers = 54;
+
+        const kbmVoices = [
+            {n: "Bpk. Ahm** Fau**", l: "Dukuh Era", m: "Kulo manteb sanget nitipaken lare mriki. Sekolahipun sae sanget, bapak ibu gurunipun sabar lan telaten sanget anggene bimbing lare-lare. Sampun kulo daftaraken online wau!"},
+            {n: "Ibu Siti Nurh**", l: "Ds. Kalipurwo", m: "Alhamdulillah pendaftarane gampil sanget lewat hp mawon saged. Fasilitase nggih kumplit sanget kagem ukuran sekolah teng mriki. Nyamleng sanget!"},
+            {n: "Bapak Suwar**", l: "Ds. Kuwarasan", m: "Sing paling kulo remeni niku program agamanipun kiyat sanget. Lare kulo sakniki dados sregep ngibadah teng griyo tanpa dipun kengken. Matur nuwun!"},
+            {n: "Ibu Purwant**", l: "Ds. Bendogarap", m: "Kualitasipun mboten kalah kalih sekolah negri. Kulo daftaraken anak kulo teng link s.id niku mboten ngantos 5 menit sampun rampung. Mantep!"}
+        ];
+
+        // Interactive Tab Switcher
+        function switchTab(evt, tabId) {
+            const contents = document.getElementsByClassName("brochure-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            const tabs = document.getElementsByClassName("brochure-tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function sensor(name) {
+            if(!name) return "Siswa Baru";
+            let parts = name.split(' ');
+            return parts.map(p => p.length > 2 ? p.substring(0, 3) + "**" : p).join(' ');
+        }
+
+        async function init() {
+            try {
+                const res = await fetch(`https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv`);
+                const text = await res.text();
+                const rows = text.split('\n').filter(r => r.trim() !== '').slice(1);
+                const list = document.getElementById('main-list');
+                
+                list.innerHTML = '';
+                rows.forEach((row, i) => {
+                    const col = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.replace(/^"|"$/g, '').trim());
+                    if(col[2]) {
+                        const el = document.createElement('div');
+                        el.className = 'student-card';
+                        el.innerHTML = `
+                            <div class="circle-ava">${col[2].charAt(0).toUpperCase()}</div>
+                            <div>
+                                <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted);">${col[1]}</span>
+                                <h3 style="font-size: 1.1rem; color: var(--primary-dark); font-weight: 800;">${sensor(col[2])}</h3>
+                                <div class="school-label"><i class="fas fa-school"></i> ${col[3] || "SD/MI Asal"}</div>
+                            </div>`;
+                        list.appendChild(el);
+                    }
+                });
+                
+                const totalRegistered = rows.length;
+                document.getElementById('stat-total').innerText = totalRegistered;
+                
+                // Update live registration progress bar
+                const maxQuota = 200;
+                const progressPercent = Math.min((totalRegistered / maxQuota) * 100, 100);
+                document.getElementById('live-progress-bar').style.width = progressPercent + '%';
+                document.getElementById('quota-filled-text').innerText = totalRegistered;
+                
+                startLogic();
+            } catch (e) { 
+                console.error(e); 
+                document.getElementById('main-list').innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: #64748b;">Gagal memuat data siswa terbaru.</p>';
+            }
+        }
+
+        function startLogic() {
+            const t = document.getElementById('testi-giant');
+            
+            // Loop Testimonial (Slide-in social proof)
+            setInterval(() => {
+                const p = kbmVoices[Math.floor(Math.random() * kbmVoices.length)];
+                document.getElementById('t-ava').innerText = p.n.charAt(0);
+                document.getElementById('t-user').innerText = p.n;
+                document.getElementById('t-loc').innerText = "Wali Murid dari " + p.l;
+                document.getElementById('t-msg').innerText = `"${p.m}"`;
+                t.classList.add('active');
+                setTimeout(() => t.classList.remove('active'), 8000);
+            }, 15000);
+
+            // Loop Sisa Kursi (Tick down effect)
+            setInterval(() => {
+                if(currentSisa > 3) {
+                    currentSisa -= Math.random() > 0.85 ? 1 : 0;
+                    document.getElementById('kuota-live').innerText = currentSisa;
+                    document.getElementById('stat-rem').innerText = currentSisa;
+                }
+            }, 8000);
+
+            // Loop Active Users (Fluctuating effect for dynamic feel)
+            setInterval(() => {
+                const fluctuation = Math.floor(Math.random() * 7) - 3; // -3 to +3
+                activeUsers += fluctuation;
+                if(activeUsers < 25) activeUsers = 35;
+                if(activeUsers > 99) activeUsers = 80;
+                document.getElementById('active-user').innerText = activeUsers;
+            }, 5000);
+
+            // Loop WA Tooltip
+            setInterval(() => {
+                const hint = document.getElementById('wa-hint');
+                hint.style.display = 'block';
+                setTimeout(() => hint.style.display = 'none', 4000);
+            }, 10000);
+        }
+
+        window.onload = init;
+        //]]>
+    </script>
+</body>
+</html>
